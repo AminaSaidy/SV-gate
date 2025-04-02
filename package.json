@@ -1,0 +1,31 @@
+{
+  "name": "sv-gate-1",
+  "version": "1.0.0",
+  "description": "Mock service for SV-GATE API",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AminaSaidy/SV-gate.git"
+  },
+  "keywords": [
+    "api",
+    "sv-gate"
+  ],
+  "author": "Amina Saidakhmedova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AminaSaidy/SV-gate/issues"
+  },
+  "homepage": "https://github.com/AminaSaidy/SV-gate#readme",
+  "dependencies": {
+    "json-rpc-2.0": "^1.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
