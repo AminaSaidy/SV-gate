@@ -60,7 +60,7 @@ const ERROR_CODES = [
   { code: -252, message: "Wrong format Merchant Id!" },
   { code: -253, message: "Terminal Id and Merchant Id not found in SV!" },
   { code: -254, message: "Terminal Id and Merchant Id not found in the database!" },
-  { code: -255, message: "Terminal Id and Merchant Id not registered!" }
+  { code: -255, message: "Terminal Id and Merchant Id not registered!" },
   { code: -256, message: "You do not have access to the method!" },
   { code: -257, message: "Token not found!" },
   { code: -258, message: "Operation is not possible with corporate cards!" },
@@ -133,8 +133,14 @@ const ERROR_CODES = [
   { code: -329, message: "Wrong format parameter Date12!" },
   { code: -330, message: "Wrong format parameter Stan!" },
   { code: -333, message: "Errors from fraud monitoring(804! (UzKard))" },
-  { code: -357, message: "Service not available, try again later (WCard)!" },
   { code: -350, message: "Service not available, try again later (WCard)!" },
+  { code: -351, message: "Service not available, try again later (WCard)!" },
+  { code: -352, message: "Service not available, try again later (WCard)!" },
+  { code: -353, message: "Service not available, try again later (WCard)!" },
+  { code: -354, message: "Service not available, try again later (WCard)!" },
+  { code: -355, message: "Service not available, try again later (WCard)!" },
+  { code: -356, message: "Service not available, try again later (WCard)!" },
+  { code: -357, message: "Service not available, try again later (WCard)!" },
   { code: -370, message: "You do not have a monitoring contract!" },
   { code: -371, message: "Card already exists in the database!" },
   { code: -372, message: "History token not found!" },
@@ -161,3 +167,13 @@ const ERROR_CODES = [
   { code: -398, message: "Token created for replenishment only!" },
   { code: -399, message: "WCard errors!" }
 ];
+
+function getErrorMessage(code) {
+    if (code >= -604 && code <= -400) {
+        return "Service not available, try again later!";
+    }
+    const error = ERROR_CODES.find(err => err.code === code);
+    return error ? error.message : "Unknown error!";
+}
+
+module.exports = { ERROR_CODES, getErrorMessage };
