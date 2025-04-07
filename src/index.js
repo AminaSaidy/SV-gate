@@ -1,12 +1,11 @@
 const express = require ('express');
 const { JSONRPCServer } = require('json-rpc-2.0');
-const { bodyParser } = require('body-parser');
 
 async function main() {
     const app = express();
     const server = new JSONRPCServer();
     
-    app.use(bodyParser.json());
+    app.use(express.json());
 
     app.post('/rpc' , (req, res) => {
         server.receive(req.body).then(jsonRPCResponse => {
