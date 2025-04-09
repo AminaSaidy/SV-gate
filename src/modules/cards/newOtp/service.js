@@ -94,3 +94,5 @@ function requestNewOtp (dto) {
         verified: false
     };
 }
+
+module.exports = { requestNewOtp };
