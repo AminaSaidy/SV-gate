@@ -4,4 +4,4 @@ function registerNewOtpModule(server) {
     server.addMethod('cards.new.otp', newOtpController.requestOTP);
 }
 
-module.exports = { registerNewOtpModule };
+module.exports = registerNewOtpModule;

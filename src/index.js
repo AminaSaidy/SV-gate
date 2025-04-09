@@ -1,6 +1,6 @@
 const express = require ('express');
 const { JSONRPCServer } = require('json-rpc-2.0');
-const cardNewOtpModule = require('./cards/module');
+const cardNewOtpModule = require('./modules/cards/newOtp/module.js');
 
 async function main() {
     const app = express();

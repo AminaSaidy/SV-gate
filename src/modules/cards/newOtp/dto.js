@@ -1,6 +1,11 @@
 class OTPDto { 
-    constructor (card) {
-        this.card = card;
+    constructor (cardData) {
+        this.card = new Card(
+            cardData.pan,
+            cardData.expiry,
+            cardData.sms,
+            cardData.requestorPhone
+        );
     }
 }
 
@@ -22,4 +27,4 @@ class SMS {
     }
 }
 
-module.exports = { OTPDto };
+module.exports = { OTPDto, Card, SMS };

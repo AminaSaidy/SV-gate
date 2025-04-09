@@ -44,6 +44,7 @@ function resetFailedAttempts(pan) {
 }
 
 function maskPhone(phone) {
+    if (!phone) return ''; 
     return '*'.repeat(phone.length - 4) + phone.slice(-4);
 }
 
@@ -54,11 +55,15 @@ function requestNewOtp (dto) {
         throwError(-205); //"Card is blocked!"
     }
 
+    console.log('card.pan:', card.pan);
+    console.log('card.expiry:', card.expiry);
+    console.log('typeof expiry:', typeof card.expiry);
+
     if (card.pan !== mockCard.pan) {
         throwError(-202); //"Pan invalid, wrong format!"
     }
 
-    if (card.expiray !== mockCard.expiry) {
+    if (card.expiry !== mockCard.expiry) {
         incrementFailedAttempt(card.pan);
         throwError(-212); //"Pan or expiry invalid, wrong format!"
     }
@@ -89,7 +94,7 @@ function requestNewOtp (dto) {
 
     return {
         id: Date.now(),
-        phoneMask: maskPhone(),
+        phoneMask: maskPhone(card.requestorPhone),
         token: '',
         verified: false
     };
