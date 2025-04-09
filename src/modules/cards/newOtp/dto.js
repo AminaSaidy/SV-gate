@@ -1,23 +1,25 @@
 class OTPDto {
-    constructor (card, sms) {
+    constructor (card) {
         this.card = card;
-        this.sms = sms;
     }
 }
 
 class Card {
-    constructor (pan, expiry) {
+    constructor (pan, expiry, sms = {}, requestorPhone = null) {
         this.pan = pan;
         this.expiry = expiry;
+        this.sms = new SMS(sms);
+        this. requestorPhone = requestorPhone;
     }
 }
 
 class SMS {
-    constructor (ussd, hash, templateId, serviceName, requestorPhone) {
+    constructor ({ussd = null, hash = null, templateId = 0, serviceName = null} = {}) {
         this.ussd = ussd;
         this.hash = hash;
         this.templateId = templateId;
         this.serviceName = serviceName;
-        this. requestorPhone = requestorPhone;
     }
 }
+
+module.exports = { OTPDto };
