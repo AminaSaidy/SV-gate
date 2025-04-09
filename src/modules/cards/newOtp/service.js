@@ -18,6 +18,7 @@ function isCardBlocked(pan) {
     if(!data)return false;
     if (data.blockedUntil && data.blockedUntil > Date.now()) return true;
 
+    // Unblock if block time has passed
     if (data.blockedUntil) {
         failedAttempts.delete(pan);
         return false;
@@ -26,6 +27,7 @@ function isCardBlocked(pan) {
     return false;
 }
 
+// Increment failed expiry attempt; block card after 3 tries
 function incrementFailedAttempt(pan) {
     const data = failedAttempts.get(pan) || { count: 0 };
     data.count += 1;
@@ -53,13 +55,15 @@ function requestNewOtp (dto) {
     }
 
     if (card.pan !== mockCard.pan) {
-        throwError(-202); //
+        throwError(-202); //"Pan invalid, wrong format!"
     }
 
     if (card.expiray !== mockCard.expiry) {
         incrementFailedAttempt(card.pan);
         throwError(-212); //"Pan or expiry invalid, wrong format!"
     }
+
+    resetFailedAttempts(card.pan);
 
     if (card.requestorPhone && card.requestorPhone !== mockCard.phone) {
         throwError(-320); //"The phone number attached to the card and the requesting phone number do not match!"
