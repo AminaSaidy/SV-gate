@@ -1,10 +1,13 @@
 const express = require ('express');
 const { JSONRPCServer } = require('json-rpc-2.0');
+const cardNewOtpModule = require('./cards/module');
 
 async function main() {
     const app = express();
     const server = new JSONRPCServer();
     
+    cardNewOtpModule(server);
+
     app.use(express.json());
 
     app.post('/rpc' , (req, res) => {
