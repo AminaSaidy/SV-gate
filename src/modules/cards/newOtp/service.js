@@ -25,3 +25,18 @@ function isCardBlocked(pan) {
 
     return false;
 }
+
+function incrementFailedAttempt(pan) {
+    const data = failedAttempts.get(pan) || { count: 0 };
+    data.count += 1;
+
+    if(data.count >= 3) {
+        data.blockedUntil = Date.now() + 4 * 60 * 60 * 1000;
+    }
+
+    failedAttempts.set(pan, data);
+}
+
+function resetFailedAttempts(pan) {
+    failedAttempts.delete(pan);
+}
