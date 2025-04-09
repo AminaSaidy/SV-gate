@@ -55,10 +55,6 @@ function requestNewOtp(dto) {
     throwError(-205); //"Card is blocked!"
   }
 
-  console.log("card.pan:", card.pan);
-  console.log("card.expiry:", card.expiry);
-  console.log("typeof expiry:", typeof card.expiry);
-
   if (card.pan !== mockCard.pan) {
     throwError(-202); //"Pan invalid, wrong format!"
   }
