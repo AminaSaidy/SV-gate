@@ -10,7 +10,7 @@ const ERROR_CODES = [
   { code: -202, message: "Pan invalid, wrong format!" },
   { code: -203, message: "Card not re-issue!" },
   { code: -204, message: "Card status is not active!" },
-  { code: -205, message: "Card blocked!" },
+  { code: -205, message: "Card is blocked!" },
   { code: -206, message: "SMS is not active!" },
   { code: -207, message: "Transaction already exists in the database!" },
   { code: -208, message: "Transaction not found!" },
@@ -176,4 +176,8 @@ function getErrorMessage(code) {
     return error ? error.message : "Unknown error!";
 }
 
-module.exports = { ERROR_CODES, getErrorMessage };
+function throwError(code) {
+    throw { code, message: getErrorMessage(code) };
+}
+
+module.exports = { ERROR_CODES, getErrorMessage, throwError };

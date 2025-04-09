@@ -1,4 +1,4 @@
-class OTPDto {
+class OTPDto { 
     constructor (card) {
         this.card = card;
     }
