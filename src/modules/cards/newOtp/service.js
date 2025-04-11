@@ -1,4 +1,11 @@
-const { throwError } = require("../../../checks/errorCodes");
+const { throwError } = require("../../../error-handler/errorCodes");
+const {
+  generateOTP,
+  incrementFailedAttempt,
+  resetFailedAttempts,
+  maskPhone,
+} = require("../../../common/utilities");
+const { isCardBlocked } = require("../../../common/checks");
 
 const mockCard = {
   pan: "860049******1234",
@@ -6,47 +13,7 @@ const mockCard = {
   phone: "998900000000",
 };
 
-const failedAttempts = new Map(); // pan -> { count, blockedUntil }
 const activeOTPs = new Map(); //pan -> { token, expiryTime }
-
-function generateOTP() {
-  return Math.floor(Math.random() * 900000 + 100000).toString();
-}
-
-function isCardBlocked(pan) {
-  const data = failedAttempts.get(pan);
-  if (!data) return false;
-  if (data.blockedUntil && data.blockedUntil > Date.now()) return true;
-
-  // Unblock if block time has passed
-  if (data.blockedUntil) {
-    failedAttempts.delete(pan);
-    return false;
-  }
-
-  return false;
-}
-
-// Increment failed expiry attempt; block card after 3 tries
-function incrementFailedAttempt(pan) {
-  const data = failedAttempts.get(pan) || { count: 0 };
-  data.count += 1;
-
-  if (data.count >= 3) {
-    data.blockedUntil = Date.now() + 4 * 60 * 60 * 1000;
-  }
-
-  failedAttempts.set(pan, data);
-}
-
-function resetFailedAttempts(pan) {
-  failedAttempts.delete(pan);
-}
-
-function maskPhone(phone) {
-  if (!phone) return "";
-  return "*".repeat(phone.length - 4) + phone.slice(-4);
-}
 
 function requestNewOtp(dto) {
   const { card } = dto; //"Pan invalid, wrong format!"
