@@ -1,5 +1,6 @@
 const { getErrorMessage } = require("../../../error-handler/errorCodes");
-const { crypto } = require("crypto");
+const crypto = require("crypto");
+const { mockCards } = require("../mockData");
 
 function verifyOtpAndGenerateToken(params) {
   const { id, code } = params.otp;
@@ -9,7 +10,7 @@ function verifyOtpAndGenerateToken(params) {
     getErrorMessage(-294);
   }
 
-  if (mockCards.otp !== code) {
+  if (card.otp !== code) {
     getErrorMessage(-269);
   }
 
@@ -43,7 +44,11 @@ function maskPhone(phone) {
 }
 
 function maskAacct(aacct) {
-    return aacct.slice(0, 5) + "" + aacct.slice(-5);
+    return aacct.slice(0, 5) + "**************" + aacct.slice(-5);
+}
+
+function maskToken(token) {
+    return token.slice(0, 12) + "********************";
 }
 
 module.exports = { verifyOtpAndGenerateToken };
