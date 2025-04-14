@@ -18,7 +18,7 @@ function verifyOtpAndGenerateToken(params) {
   card.token = token;
 
   return {
-    id: token,
+    id: maskToken(token),
     username: card.username,
     pan: maskPan(card.pan),
     status: card.status,
