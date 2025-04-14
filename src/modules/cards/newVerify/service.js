@@ -1,11 +1,18 @@
 const { getErrorMessage } = require("../../../error-handler/errorCodes");
-const crypto = require("crypto");
-const { mockCards } = require("../mockData");
+const { mockCard2 } = require("../../../common/mockData");
+const { generateToken } = require("../../../common/utilities");
+const {
+  maskPhoneEnd,
+  maskPan,
+  maskAacct,
+  maskToken,
+} = require("../../../common/maskFunctions");
 
+//CHECK IF TOKEN FOR THIS CARD ALREADY EXISTS NEEDED
 function verifyOtpAndGenerateToken(params) {
   const { id, code } = params.otp;
 
-  const card = mockCards.get(id);
+  const card = mockCard2;
   if (!card) {
     getErrorMessage(-294);
   }
@@ -14,7 +21,7 @@ function verifyOtpAndGenerateToken(params) {
     getErrorMessage(-269);
   }
 
-  const token = crypto.randomBytes(16).toString("hex").toUpperCase();
+  const token = generateToken();
   card.token = token;
 
   return {
@@ -22,7 +29,7 @@ function verifyOtpAndGenerateToken(params) {
     username: card.username,
     pan: maskPan(card.pan),
     status: card.status,
-    phone: maskPhone(card.phone),
+    phone: maskPhoneEnd(card.phone),
     fullName: card.fullName,
     balance: card.balance,
     sms: card.sms,
@@ -33,22 +40,6 @@ function verifyOtpAndGenerateToken(params) {
     holdAmount: card.holdAmount,
     cashbackAmount: card.cashbackAmount,
   };
-}
-
-function maskPan(pan) {
-  return pan.slice(0, 4) + "************";
-}
-
-function maskPhone(phone) {
-  return phone.slice(0, 3) + "*********";
-}
-
-function maskAacct(aacct) {
-  return aacct.slice(0, 5) + "**************" + aacct.slice(-5);
-}
-
-function maskToken(token) {
-  return token.slice(0, 12) + "********************";
 }
 
 module.exports = { verifyOtpAndGenerateToken };
