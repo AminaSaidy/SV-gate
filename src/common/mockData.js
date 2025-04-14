@@ -1,6 +1,13 @@
-const mockCards = new Map();
+const failedAttempts = new Map(); // pan -> { count, blockedUntil }
+const activeOTPs = new Map(); //pan -> { token, expiryTime }
 
-mockCards.set(123456789, {
+const mockCard1 = {
+    pan: "860049******1234",
+    expiry: "2605",
+    phone: "998900000000",
+  };
+
+const mockCard2 = {
   otp: "230258",
   pan: "8600123412341234",
   username: "somename",
@@ -16,6 +23,6 @@ mockCards.set(123456789, {
   holdAmount: 0,
   cashbackAmount: 0,
   token: null,
-});
+};
 
-module.exports = { mockCards };
+module.exports = { mockCard1, mockCard2, failedAttempts, activeOTPs};

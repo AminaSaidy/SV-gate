@@ -1,5 +1,6 @@
-const failedAttempts = new Map(); // pan -> { count, blockedUntil }
+const {failedAttempts} = require("./mockData");
 
+//FUNCTIONS TO CHECK LENGTHS OF PAN AND OTHERS ARE NEEDED
 function isCardBlocked(pan) {
     const data = failedAttempts.get(pan);
     if (!data) return false;

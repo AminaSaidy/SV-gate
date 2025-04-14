@@ -23,6 +23,7 @@ class SMS {
     ussd = null,
     hash = null,
     templateId = 0,
+    serviceName
   } = {}) {
     this.ussd = ussd;
     this.hash = hash;
