@@ -36,19 +36,19 @@ function verifyOtpAndGenerateToken(params) {
 }
 
 function maskPan(pan) {
-    return pan.slice(0, 4) + "************";
+  return pan.slice(0, 4) + "************";
 }
 
 function maskPhone(phone) {
-    return phone.slice(0, 3) + "*********";
+  return phone.slice(0, 3) + "*********";
 }
 
 function maskAacct(aacct) {
-    return aacct.slice(0, 5) + "**************" + aacct.slice(-5);
+  return aacct.slice(0, 5) + "**************" + aacct.slice(-5);
 }
 
 function maskToken(token) {
-    return token.slice(0, 12) + "********************";
+  return token.slice(0, 12) + "********************";
 }
 
 module.exports = { verifyOtpAndGenerateToken };
