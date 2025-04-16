@@ -8,7 +8,7 @@ function getTokensController(params) {
       }
 
     const dto = new GetTokenRequestDto(params.cardId);
-    return getTokensForCard;
+    return getTokensForCard(dto.cardId);
 }
 
 module.exports = { getTokensController };

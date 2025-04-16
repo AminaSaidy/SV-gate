@@ -42,13 +42,13 @@ const mockPartners = [
     id: '3D2F91B5B53C1884',
     appName: 'somename3',
     registrationDate: '22.04.2024 12:01:01',
-    verified: false,
+    verified: true,
   },
   {
     id: '8A2E13B7D0012211',
     appName: 'somename4',
     registrationDate: '05.02.2024 09:45:00',
-    verified: true,
+    verified: false,
   },
   {
     id: '5C45A7D6E101D222',

@@ -1,5 +1,5 @@
-const cardsGetTokens = require("./controller");
+const { getTokensController } = require("./controller");
 
 module.exports = (server) => {
-    server.addMethod("cards.get.tokens", cardsGetTokens);
+    server.addMethod("cards.get.tokens", getTokensController);
 };

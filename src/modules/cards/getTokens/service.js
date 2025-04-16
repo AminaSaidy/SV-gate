@@ -1,12 +1,12 @@
 const { GetTokensResponseDto } = require('../../cards/getTokens/dto');
-const mockPartners = require('../../../common/mockData');
+const { mockPartners, cardPartnersMap } = require('../../../common/mockData');
 
 const getTokensForCard = (cardId) => {
     const partnerIds = cardPartnersMap[cardId];
     if(!partnerIds) return [];
 
     return partnerIds
-    .map((partnerIds) => {
+    .map((partnerId) => {
         const partner = mockPartners.find(p => p.id === partnerId && p.verified);
         if (partner) {
             return new GetTokensResponseDto(
