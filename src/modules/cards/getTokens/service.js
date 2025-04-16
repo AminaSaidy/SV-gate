@@ -1,3 +1,4 @@
+const { GetTokensResponseDto } = require('../../cards/getTokens/dto');
 const mockPartners = require('../../../common/mockData');
 
 const getTokensForCard = (cardId) => {
@@ -8,7 +9,7 @@ const getTokensForCard = (cardId) => {
     .map((partnerIds) => {
         const partner = mockPartners.find(p => p.id === partnerId && p.verified);
         if (partner) {
-            return new GetTokenResponseDto(
+            return new GetTokensResponseDto(
                 partner.id,
                 partner.appName,
                 partner.registrationDate
@@ -16,6 +17,6 @@ const getTokensForCard = (cardId) => {
         }
     })
     .filter(Boolean);
-}
+};
 
 module.exports = { getTokensForCard };

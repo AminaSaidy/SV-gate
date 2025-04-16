@@ -1,7 +1,8 @@
 const express = require("express");
 const { JSONRPCServer } = require("json-rpc-2.0");
-const cardNewOtpModule = require("./modules/cards/newOtp/module.js");
+const cardNewOtp = require("./modules/cards/newOtp/module.js");
 const cardsNewVerify = require("./modules/cards/newVerify/module.js");
+const cardsGetTokens = require("./modules/cards/getTokens/module.js");
 
 async function main() {
   const app = express();
@@ -9,7 +10,8 @@ async function main() {
 
   cardNewOtpModule(server);
   cardsNewVerify(server);
-  
+  cardsGetTokens(server);
+
   app.use(express.json());
 
   app.post("/rpc", (req, res) => {
