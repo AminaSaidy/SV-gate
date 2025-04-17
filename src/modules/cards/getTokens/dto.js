@@ -1,6 +1,6 @@
 class GetTokenRequestDto {
-    constructor(cardId) {
-        this.cardId = cardId;
+    constructor(id) {
+        this.id = id;
     }
 }
 
