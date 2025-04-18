@@ -6,9 +6,11 @@ class BlockTokensDto {
 }
 
 class BlockTokensResponseDto {
-    constructor (id, appName, registrationDate) {
+    constructor (id, code, message) {
         this.id = id;
-        this.appName = appName;
-        this.registrationDate = registrationDate;
+        this.code = code;
+        this.message = message;
     }
 }
+
+module.exports = { BlockTokensDto, BlockTokensResponseDto };

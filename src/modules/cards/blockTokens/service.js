@@ -2,7 +2,7 @@ const { blockedTokens } = require("../../../common/mockData");
 const { BlockTokensResponseDto } = require("./dto");
 
 const blockTokens = (tokens) => {
-    return tokens.map ((id, time) => {
+    return tokens.map (({ id, time }) => {
         const blockUntil = Date.now() + time * 60 * 100 + 1000;
         blockedTokens.set(id, blockUntil);
 

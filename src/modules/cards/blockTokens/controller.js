@@ -1,7 +1,8 @@
 const { getErrorMessage } = require("../../../error-handler/errorCodes");
+const { blockTokens } = require("./service");
 
-const blockTokensController = (req, res) => {
-    const tokens = req.body.params.tokens;
+const blockTokensController = ( params ) => {
+    const tokens = params.tokens;
 
     if(!Array.isArray(tokens) || tokens.length === 0) {
         throw getErrorMessage(-377); //Only tokens can be sent in this field!
