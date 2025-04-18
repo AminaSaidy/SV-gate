@@ -1,5 +1,6 @@
 const failedAttempts = new Map(); // pan -> { count, blockedUntil }
 const activeOTPs = new Map(); //pan -> { token, expiryTime }
+const blockedTokens = new Map ();
 
 const mockCard1 = {
     pan: "860049******1234",
@@ -64,4 +65,4 @@ const cardPartnersMap = {
   '345B6DCDC5BB4E619341F2CC71F9206F': ['5C45A7D6E101D222'],
 }
 
-module.exports = { mockCard1, mockCard2, failedAttempts, activeOTPs, mockPartners, cardPartnersMap };
+module.exports = { mockCard1, mockCard2, failedAttempts, activeOTPs, mockPartners, cardPartnersMap, blockedTokens };

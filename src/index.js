@@ -3,6 +3,7 @@ const { JSONRPCServer } = require("json-rpc-2.0");
 const cardsNewOtp = require("./modules/cards/newOtp/module.js");
 const cardsNewVerify = require("./modules/cards/newVerify/module.js");
 const cardsGetTokens = require("./modules/cards/getTokens/module.js");
+const cardsBlockTokens = require("./modules/cards/blockTokens/module.js");
 
 async function main() {
   const app = express();
@@ -11,6 +12,7 @@ async function main() {
   cardsNewOtp(server);
   cardsNewVerify(server);
   cardsGetTokens(server);
+  cardsBlockTokens(server);
 
   app.use(express.json());
 
