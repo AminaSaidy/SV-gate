@@ -4,6 +4,7 @@ const cardsNewOtp = require("./modules/cards/newOtp/module.js");
 const cardsNewVerify = require("./modules/cards/newVerify/module.js");
 const cardsGetTokens = require("./modules/cards/getTokens/module.js");
 const cardsBlockTokens = require("./modules/cards/blockTokens/module.js");
+const cardsRemoveToken = require("./modules/cards/removeToken/module.js");
 
 async function main() {
   const app = express();
@@ -13,7 +14,8 @@ async function main() {
   cardsNewVerify(server);
   cardsGetTokens(server);
   cardsBlockTokens(server);
-
+  cardsRemoveToken(server);
+  
   app.use(express.json());
 
   app.post("/rpc", (req, res) => {
