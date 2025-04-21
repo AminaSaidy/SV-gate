@@ -1,7 +1,7 @@
 const { RemoveTokenResponseDto } = require("./dto");
-const {} = require("../../../common/mockData");
+const { tokensList } = require("../../../common/mockData");
 
-const removeTokens = (tokens) => {
+const removeToken = (tokens) => {
   return tokens.map((id) => {
     if (tokensList.has(id)) {
       tokensList.delete(id);
@@ -12,4 +12,4 @@ const removeTokens = (tokens) => {
   });
 };
 
-module.expoorts = { removeTokens };
+module.exports = { removeToken };
