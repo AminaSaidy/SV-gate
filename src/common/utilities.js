@@ -1,12 +1,12 @@
 const crypto = require("crypto");
-const {failedAttempts} = require("./mockData");
+const { failedAttempts } = require("./mockData");
 
 function generateOTP() {
   return Math.floor(Math.random() * 900000 + 100000).toString();
 }
 
 function generateToken() {
- return crypto.randomBytes(16).toString("hex").toUpperCase();
+  return crypto.randomBytes(16).toString("hex").toUpperCase();
 }
 
 // Increment failed expiry attempt; block card after 3 tries
@@ -29,5 +29,5 @@ module.exports = {
   generateOTP,
   incrementFailedAttempt,
   resetFailedAttempts,
-  generateToken
+  generateToken,
 };

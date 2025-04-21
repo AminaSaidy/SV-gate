@@ -1,5 +1,5 @@
 const { blockTokensController } = require("./controller");
 
 module.exports = (server) => {
-    server.addMethod("cards.block.tokens", blockTokensController);
-}
+  server.addMethod("cards.block.tokens", blockTokensController);
+};
