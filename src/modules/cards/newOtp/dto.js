@@ -19,12 +19,7 @@ class Card {
 }
 
 class SMS {
-  constructor({
-    ussd = null,
-    hash = null,
-    templateId = 0,
-    serviceName
-  } = {}) {
+  constructor({ ussd = null, hash = null, templateId = 0, serviceName } = {}) {
     this.ussd = ussd;
     this.hash = hash;
     this.templateId = templateId;

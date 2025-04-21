@@ -4,9 +4,9 @@ const {
   incrementFailedAttempt,
   resetFailedAttempts,
 } = require("../../../common/utilities");
-const { maskPhoneFront } = require ("../../../common/maskFunctions");
+const { maskPhoneFront } = require("../../../common/maskFunctions");
 const { isCardBlocked } = require("../../../common/checks");
-const {activeOTPs, mockCard1} = require("../../../common/mockData");
+const { activeOTPs, mockCard1 } = require("../../../common/mockData");
 
 function requestNewOtp(dto) {
   const { card } = dto; //"Pan invalid, wrong format!"
