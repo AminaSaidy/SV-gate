@@ -6,6 +6,7 @@ const cardsGetTokens = require("./modules/cards/getTokens/module.js");
 const cardsRemoveToken = require("./modules/cards/removeToken/module.js");
 const cardsBlockTokens = require("./modules/cards/blockTokens/module.js");
 const cardsUnblockTokens = require("./modules/cards/unblockTokens/module.js");
+const cardsGetController = require("./modules/cards/get/module.js");
 
 async function main() {
   const app = express();
@@ -17,7 +18,7 @@ async function main() {
   cardsRemoveToken(server);
   cardsBlockTokens(server);
   cardsUnblockTokens(server);
-  
+  cardsGetController(server);
   
   app.use(express.json());
 
