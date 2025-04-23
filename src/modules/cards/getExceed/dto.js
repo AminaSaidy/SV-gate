@@ -1,4 +1,4 @@
-class ExceedResponseDTO {
+class ExceedResponseDto {
   constructor({
     id,
     username,
@@ -36,4 +36,4 @@ class ExceedResponseDTO {
   }
 }
 
-module.exports = { ExceedResponseDTO };
+module.exports = { ExceedResponseDto };
