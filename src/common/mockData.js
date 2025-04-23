@@ -30,6 +30,43 @@ const mockCard2 = {
   token: null,
 };
 
+const cards = [
+  {
+    id: "983F6F70F7574E1988661416D64509CE",
+    username: "someuser",
+    pan: "8600123412341234",
+    expiry: "2506",
+    status: 1,
+    phone: "998901234567",
+    fullName: "Bruce Wayne",
+    balance: 1200000000,
+    sms: false,
+    pincnt: 2,
+    aacct: "ACC12345678901234567890",
+    par: "ABCD1234EFGH5678IJKL91011",
+    cardtype: "gold",
+    holdAmount: 500000,
+    cashbackAmount: 15000
+  },
+  {
+    id: "8F481DD8B5C6********************",
+    username: "somename",
+    pan: "8600************",
+    expiry: "1249",
+    status: 0,
+    phone: "998998765432",
+    fullName: "Robert John Downey",
+    balance: 14900601000,
+    sms: true,
+    pincnt: 0,
+    aacct: "*************************",
+    par: "123422618D661F6A89A62518DF654",
+    cardtype: "private",
+    holdAmount: -105000000,
+    cashbackAmount: 0
+  }
+];
+
 const mockPartners = [
   {
     id: "3F319ED471BEEBBE",
