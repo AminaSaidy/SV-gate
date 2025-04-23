@@ -30,7 +30,7 @@ const mockCard2 = {
   token: null,
 };
 
-const cards = [
+const mockCards = [
   {
     id: "983F6F70F7574E1988661416D64509CE",
     username: "someuser",
@@ -113,6 +113,7 @@ const cardPartnersMap = {
 module.exports = {
   mockCard1,
   mockCard2,
+  mockCards,
   failedAttempts,
   activeOTPs,
   mockPartners,
