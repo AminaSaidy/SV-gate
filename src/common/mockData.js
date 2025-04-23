@@ -67,6 +67,27 @@ const mockCards = [
   }
 ];
 
+const mockCards2 = [
+  {
+    id: "8F481DD8B5C6********************",
+    username: "somename",
+    pan: "8600************",
+    expiry: "1249",
+    status: 0,
+    phone: "998*********",
+    fullName: "Robert John Downey",
+    balance: 14900601000,
+    sms: true,
+    pincnt: 0,
+    aacct: "*************************",
+    par: "123422618D661F6A89A62518DF654",
+    cardtype: "private",
+    holdAmount: -105000000,
+    cashbackAmount: 0,
+    exceedLimit: 0,
+  }
+];
+
 const mockPartners = [
   {
     id: "3F319ED471BEEBBE",
@@ -114,6 +135,7 @@ module.exports = {
   mockCard1,
   mockCard2,
   mockCards,
+  mockCards2,
   failedAttempts,
   activeOTPs,
   mockPartners,
