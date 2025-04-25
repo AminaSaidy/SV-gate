@@ -131,7 +131,19 @@ const cardPartnersMap = {
   "345B6DCDC5BB4E619341F2CC71F9206F": ["5C45A7D6E101D222"],
 };
 
+// const cards = [
+//   {
+//     cardId: "8A29E834E706********************",
+//     username: "somename",
+//     pan: "8600************",
+//     expiry: "1249",
+//     statusId: 0,
+//     issuer: "BANK", 
+//   },
+// ];
+
 module.exports = {
+  // cards,
   mockCard1,
   mockCard2,
   mockCards,
